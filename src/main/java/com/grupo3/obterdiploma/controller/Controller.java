@@ -30,7 +30,7 @@ public class Controller {
     public ResponseEntity<DegreeDto> getAluno(@PathVariable Long id) {
         Optional<Student> optionalAluno = studentRepository.findById(id);
         if (optionalAluno.isEmpty()){
-            throw new StudentNotFoundException("Não existe nenhum aluno cadastrado com esse id");
+            throw new StudentNotFoundException("Nao existe nenhum aluno cadastrado com esse id");
         }
 
         return ResponseEntity.ok(studentDtoService.convertToDto(optionalAluno.get()));

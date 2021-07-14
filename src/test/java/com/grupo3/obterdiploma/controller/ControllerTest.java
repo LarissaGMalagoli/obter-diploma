@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -101,7 +102,10 @@ class ControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers
-                        .status().isNotFound());
+                        .status().isNotFound())
+                .andExpect(content().string("Nao existe nenhum aluno cadastrado com esse id"));
     }
+
+
 
 }
